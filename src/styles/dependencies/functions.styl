@@ -1,0 +1,179 @@
+////////////////////////
+//      REM CALC      //
+////////////////////////
+$base-font-size = 16px;
+
+rem(values) {
+  $base = $base-font-size is a "unit" ? $base-font-size : 16;
+  $result = null;
+
+  for value in values {
+    if type( value ) == "unit" && ( unit( value ) == "px" || unit( value ) == "" ) {
+      value = unit( round( value / $base, 3 ), "rem" )
+
+      if value == "0rem" {
+        value = 0
+      }
+
+      $result = $result != null ? $result value : value
+    }
+  }
+}
+
+////////////////////////
+//      EM CALC       //
+////////////////////////
+em(values) {
+  $base = $base-font-size;
+  $result = null;
+
+  for value in values {
+    if type( value ) == "unit" && ( unit( value ) == "px" || unit( value ) == "" ) {
+      value = unit(round(value / $base, 3 ), "em");
+
+      if value == "0em" {
+        value = 0
+      }
+
+      $result = $result != null ? $result value : value;
+    }
+  }
+}
+
+////////////////////////
+//   STYLED ANCHOR    //
+////////////////////////
+styledAnchor(fontSize = rem(20), fontColor = $white, fontColorHover = $black, backgroundColor = fontColor) {
+    position    : relative;
+    font-size   : fontSize;
+    color       : fontColor;
+    transition  : color 100ms ease-out;
+
+    &::before {
+        content    : '';
+        position   : absolute;
+        top        : "calc(100% - %s)" % 1px;
+        right      : 0;
+        bottom     : 0;
+        left       : 0;
+        background : backgroundColor;
+        transition : top 100ms ease-out;
+        z-index    : -1;
+    }
+
+    &:focus {
+        outline : 0;
+    }
+
+    &:hover,
+    &:focus {
+        color : fontColorHover;
+
+        &::before {
+            top : 0;
+        }
+
+    }
+
+    &:active,
+    &:visited {
+        color : fontColor;
+    }
+
+}
+
+////////////////////////
+//      Flexbox       //
+////////////////////////
+
+flexContainer( centerContent = false ) {
+  display   : flex;
+  flex-wrap : wrap;
+
+  if centerContent {
+    justify-content : center;
+    align-items     : center;
+    align-content   : center;
+  }
+}
+
+flexItem(flexGrow = 1, flexShrink = 0, flexBasis = auto, flexSelf = auto) {
+  flex       : flexGrow flexShrink flexBasis;
+  align-self : flexSelf;
+}
+
+////////////////////////
+//      Margins       //
+////////////////////////
+// $directions = top right bottom left;
+
+// Margin Function
+// Outputs .l--m-x {margin:1px through margin:10px}
+// $all-margins: 10;
+//
+// @for $i from 1 through $all-margins {
+//     $value: ((10 / $all-margins) * $i) * 1;
+//
+//     .l--m-#{$i} {
+//         margin: rem($value) !important;
+//     }
+//
+// }
+
+// Single Side Margin Function
+// Outputs .l--m-top-x {margin-top:1px through margin-top:20px}
+// Outputs .l--m-right-x {margin-right:1px through margin-right:20px}
+// Outputs .l--m-bottom-x {margin-bottom:1px through margin-bottom:20px}
+// Outputs .l--m-left-x {margin-left:1px through margin-left:20px}
+// @each $direction in $directions {
+//     $margin: 20;
+//
+//     @for $i from 1 through $margin {
+//         $value: ((20 / $margin) * $i) * 1;
+//
+//         .l--m-#{$direction}-#{$i} {
+//             margin-#{$direction} : rem($value) !important;
+//         }
+//
+//     }
+//
+// }
+
+////////////////////////
+//                    //
+//      Padding       //
+//                    //
+////////////////////////
+
+// Padding Function
+// Outputs .l--p-x {padding:2px & even #s through padding:10px}
+// $padding: 5;
+//
+// @for $i from 1 through $padding {
+//     $value: ((10 / $padding) * $i);
+//
+//     .l--p-#{$i * 2} {
+//         padding: rem($value) !important;
+//     }
+//
+// }
+
+// Single Side Padding Function
+// Outputs .l--p-top-x {padding-top:2px & even #s through padding-top:20px}
+// Outputs .l--p-right-x {padding-right:2px & even #s through padding-right:20px}
+// Outputs .l--p-bottom-x {padding-bottom:2px & even #s through padding-bottom:20px}
+// Outputs .l--p-left-x {padding-left:2px & even #s through padding-left:20px}
+// @each $direction in $directions {
+//
+//     $padding: 10;
+//
+//     @for $i from 1 through $padding {
+//         $value: ((10 / $padding) * $i * 2);
+//
+//         .l--p-#{$direction}-#{$i * 2} {
+//             padding-#{$direction} : rem($value) !important;
+//         }
+//
+//     }
+//
+// }

@@ -1,0 +1,198 @@
+$display-control-button-width = rem(50);
+
+aspect-ratio($width, $height) {
+    position : relative;
+
+    &:before {
+        display     : block;
+        content     : '';
+        width       : 100%;
+        padding-top : ($height / $width) * 100%;
+   }
+
+}
+
+.display__body {
+    aspect-ratio(16, 9);
+    flexItem(1, 0, rem(960));
+    width              : "calc(100% - (%s * 2))" % $display-control-button-width;
+    margin             : 0 $display-control-button-width;
+    position           : relative;
+    background         : transparent;
+    border             : 5px solid $white;
+    border-radius      : rem(25);
+    perspective        : 150px;
+    perspective-origin : 50% 100%;
+}
+
+.display__inner-bezel {
+    position : absolute;
+    top      : rem(20);
+    left     : rem(20);
+    right    : rem(60);
+    bottom   : rem(20);
+
+    background    : transparent;
+    border        : 2px solid $white;
+    border-radius : rem(5);
+    overflow-y    : auto;
+    background    : $gray--800;
+
+    +min-screen($media-medium) {
+        top      : rem(20);
+        left     : rem(20);
+        right    : rem(20);
+        bottom   : rem(40);
+    }
+
+}
+
+.display {
+    flexContainer();
+    flex-direction : column;
+    flex-wrap      : nowrap;
+    position       : absolute;
+    top            : 0;
+    right          : 0;
+    bottom         : 0;
+    left           : 0;
+    overflow       : hidden;
+}
+
+.display__button {
+    position      : absolute;
+    top           : 50%;
+    left          : "calc(100% - %s)" % rem(45);
+    width         : rem(30);
+    height        : rem(30);
+    border        : 2px solid $white;
+    border-radius : 50%;
+    transform     : translateY(-50%);
+
+    +min-screen($media-medium) {
+        display : none;
+    }
+
+}
+
+.display__base {
+    display : none;
+
+    +min-screen($media-medium) {
+        position      : absolute;
+        top           : "calc(100% - %s)" % rem(5);
+        left          : 50%;
+        display       : block;
+        width         : 25vw;
+        height        : 10vh;
+        border        : 5px solid $white;
+        border-radius : rem(0 0 10 10);
+        transform     : rotateX(30deg) translateX(-50%);
+    }
+}
+
+@keyframes highlight-on-appear {
+    0%{background : rgba($white, .2)}
+    50%{background : rgba($white, .2)}
+    100%{background : transparent}
+}
+
+.display__project-button {
+    position   : absolute;
+    top        : rem(20);
+    bottom     : $display-control-button-width;
+    width      : $display-control-button-width;
+    opacity    : 0;
+    cursor     : pointer;
+    transition : opacity 300ms $ease-in-out-quint,
+                 right 300ms $ease-in-out-quint,
+                 left 300ms $ease-in-out-quint;
+
+    &.display__project-button--previous {
+        left : 0;
+    }
+
+    &.display__project-button--next {
+        right : 0;
+    }
+
+    &.display__project-button--active {
+        animation : highlight-on-appear 1000ms $ease-in-out-quint;
+        opacity   : 1;
+
+        &.display__project-button--previous {
+            left : rem(-55);
+        }
+
+        &.display__project-button--next {
+            right : rem(-55);
+        }
+
+    }
+
+    &:hover,
+    &:focus {
+        outline    : 1px solid $white;
+        background : rgba($white, .2);
+    }
+
+    &.display__project-button--next.display__project-button--previous--disabled,
+    &.display__project-button--previous.display__project-button--next--disabled {
+        &:hover,
+        &:focus {
+            outline    : none;
+            background : transparent;
+            cursor     : default;
+        }
+
+        .icon svg {
+            fill : $gray--400;
+        }
+
+    }
+
+}
+
+.display__project-button__icon {
+    position  : absolute;
+    top       : 50%;
+    left      : 50%;
+    transform : translate(-50%, -50%);
+
+    .display__project-button--previous & {
+        transform : translate(-50%, -50%) rotate(180deg);
+    }
+
+}
+
+.display__menu__button {
+  @extend .displayFontBold;
+  position                   : absolute;
+  top                        : rem(-10);
+  left                       : rem(35);
+  padding                    : rem(5);
+  border                     : 2px solid $projectsColor;
+  background                 : $white;
+  color                      : $projectsColor;
+  z-index                    : 2;
+  cursor                     : pointer;
+  transition-duration        : 300ms;
+  transition-property        : top;
+  transition-timing-function : $ease-in-out-back;
+  transition-delay           : 750ms;
+
+    &.display__menu__button--active {
+        top : rem(35);
+    }
+
+    &:hover,
+    &:focus {
+        outline : 1px solid $white;
+    }
+
+    &.display__menu__button--active:hover {
+        outline : 1px solid $gray--300;
+        outline-offset: 2px;
+    }
+
+}

@@ -1,0 +1,181 @@
+// *******************************************
+// *******************************************
+
+// Typographical inline element styles
+
+// *******************************************
+// *******************************************
+
+.page__inline-a {
+  @extend .bodyFont;
+  styledAnchor(rem(20), $white, $white);
+  line-height     : 1.5;
+  text-decoration : none;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+      .concepts-page & {
+          color : $conceptsColor;
+      }
+
+      .about-page & {
+          color : $aboutColor;
+      }
+
+      .projects-page & {
+          color : $projectsColor;
+      }
+
+      .elsewhere-page & {
+          color : $elsewhereColor;
+      }
+
+  }
+
+}
+
+////////////////////////////
+//                       //
+//     Text-level 1      //
+//                       //
+///////////////////////////
+
+// links
+.a {
+  color: $primary;
+  background: transparent;
+  cursor: pointer;
+  transition: color 200ms ease;
+
+  // Addresses outline displayed oddly in Chrome
+  &:focus {
+    outline: thin dotted;
+  }
+
+  // Improves readability when focused and also mouse hovered in all browsers
+  &:hover,
+  &:active {
+    text-decoration : underline;
+    color           : shade($primary, 10%);
+    outline         : 0;
+  }
+
+}
+
+// inline modifiers
+.b,
+.strong {
+  font-weight: bold;
+}
+
+.i,
+.em {
+  font-style: italic;
+}
+
+.small {
+  font-size: 80%;
+}
+
+.sub,
+.sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.sup {
+  top: -0.5em;
+}
+
+.sub {
+  bottom: -0.25em;
+}
+
+// definitions
+.dfn {
+  font-style: italic;
+}
+
+// abbreviations
+.abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+// consistent quote types
+.q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+////////////////////////////
+//                       //
+//     Text-level 2      //
+//                       //
+///////////////////////////
+
+.code,
+.kbd,
+.samp {
+  font-size: rem(16);
+  font-family: monospace, serif;
+}
+
+// force proper styling for all
+// elements inside typography element
+.typography {
+
+  a {
+    @extend .a;
+  }
+
+  b {
+    @extend .b;
+  }
+
+  strong {
+    @extend .strong;
+  }
+
+  i {
+    @extend .i;
+  }
+
+  em {
+    @extend .em;
+  }
+
+  small {
+    @extend .small;
+  }
+
+  sub {
+    @extend .sub;
+  }
+
+  sup {
+    @extend .sup;
+  }
+
+  dfn {
+    @extend .dfn;
+  }
+
+  q {
+    @extend .q;
+  }
+
+  code {
+    @extend .code;
+  }
+
+  kbd {
+    @extend .kbd;
+  }
+
+  samp {
+    @extend .samp;
+  }
+
+}

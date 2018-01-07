@@ -1,0 +1,107 @@
+$card-height--small = rem(200);
+$card-height = rem(250);
+
+.card__list {
+
+}
+
+.card__item:not(:last-of-type) {
+  padding-bottom : rem(40);
+}
+
+.card__link {
+    display         : flex;
+    flex-wrap       : wrap;
+    border          : 1px solid shade($white, 3%);
+    background      : $white;
+    text-decoration : none;
+    transition      : box-shadow 300ms ease;
+
+    &:hover {
+        box-shadow : 2px 2px 4px rgba($black, .2);
+    }
+
+    &:focus {
+        outline        : 1px solid $white;
+        outline-offset : 2px;
+    }
+
+}
+
+.card__row {
+    display   : flex;
+    flex-wrap : wrap;
+    flex      : 1 1 50%;
+
+    +min-screen($media-small) {
+        flex  : 1 1 100%;
+    }
+
+}
+
+.card__column {
+    position : relative;
+    flex     : 1 1 100%;
+    height   : $card-height--small;
+    overflow : hidden;
+
+    +min-screen($media-medium) {
+        height : $card-height;
+
+        &:first-of-type {
+            flex : 1 1 40%;
+        }
+
+        &:last-of-type {
+            flex : 1 1 60%;
+        }
+
+    }
+
+}
+
+.card__image {
+    width      : 100%;
+    min-height : 100%;
+}
+
+.card__title {
+  @extend .displayFontBold;
+  display     : block;
+  padding     : rem(10);
+  font-size   : rem(24);
+  color       : $conceptsColor;
+
+  +min-screen($media-medium) {
+      padding   : rem(20);
+      font-size : rem(32);
+  }
+}
+
+.card__description {
+  @extend .bodyFont;
+  display    : block;
+  padding    : rem(10);
+  font-size  : rem(16);
+  color      : $conceptsColor;
+  line-height: 1.2;
+
+  +min-screen($media-medium) {
+    padding   : rem(20);
+    font-size : rem(20);
+  }
+}
+
+.card__length {
+  @extend .bodyFont;
+  position    : absolute;
+  right       : rem(10);
+  bottom      : rem(10);
+  font-size   : rem(16);
+  color       : $conceptsColor;
+
+  +min-screen($media-small) {
+      right  : rem(20);
+      bottom : rem(20);
+  }
+}

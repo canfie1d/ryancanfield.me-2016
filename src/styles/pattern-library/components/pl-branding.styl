@@ -1,0 +1,26 @@
+// *******************************************
+// *******************************************
+
+// Style Guide branding component
+
+// *******************************************
+// *******************************************
+
+.pl-branding {
+  height: rem(64);
+  margin: rem(37 -30 30 -30);
+  padding: rem(8 0);
+  display: block;
+  text-align: center;
+  border-bottom: 1px solid $gray--300;
+
+  +min-screen($media-medium) {
+    margin: rem(-30 -30 30 -30);
+  }
+
+}
+
+.pl-branding__svg {
+  max-width: rem(120);
+  fill: $gray--400;
+}

@@ -1,0 +1,48 @@
+$small-header-height = rem(73);
+$header-height       = rem(100);
+$header-padding      = rem(10);
+
+.header {
+  flexItem(0, 0, $small-header-height);
+  box-sizing : border-box;
+  padding  : $header-padding;
+
+  +min-screen($media-small) {
+    flexItem(0, 0, $header-height);
+  }
+}
+
+.page__header {
+    flexContainer();
+    height : "calc(%s - (%s * 2))" % ($small-header-height $header-padding);
+
+    +min-screen($media-small) {
+        height : "calc(%s - (%s * 2))" % ($header-height $header-padding);
+    }
+}
+
+.page__header__icon {
+    flexItem(0, 0, auto);
+    padding: rem(22.5 10 22.5 0);
+
+    +min-screen($media-medium) {
+      padding: rem(10 10 10 0);
+    }
+}
+
+.page__header__title {
+  @extend .displayFontBold;
+  flexItem(1, 1, auto);
+  font-size   : rem(42);
+  color       : $white;
+  text-align: left;
+  line-height : "calc(%s - (%s * 2))" % ($small-header-height $header-padding);
+  transition  : font-size 200ms ease;
+  user-select: none;
+  cursor: default;
+
+  +min-screen($media-small) {
+    margin-left : rem(10);
+    line-height : "calc(%s - (%s * 2))" % ($header-height $header-padding);
+  }
+}

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900');
+
+////////////////////////////////////////
+//      Font-Family Definitions       //
+////////////////////////////////////////
+
+$lato--medium= 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+$lato--black= 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+
+///////////////////////////////
+//      Font Variables       //
+///////////////////////////////
+$display-font= $lato--medium;
+$display-font--bold= $lato--black;
+$body-font= $lato--medium;
+
+////////////////////////////
+//      Font Mixins       //
+////////////////////////////
+.displayFontBold {
+  font-family : $display-font--bold;
+  font-weight : 900;
+}
+
+.displayFont {
+  font-family : $display-font;
+  font-weight : 400;
+}
+
+.bodyFont {
+  font-family : $body-font;
+  font-weight : 400;
+}

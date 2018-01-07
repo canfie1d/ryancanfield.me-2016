@@ -1,0 +1,58 @@
+// *******************************************
+// *******************************************
+
+// Button Styles
+
+// *******************************************
+// *******************************************
+
+.button {
+  @extend .displayFontBold;
+  styledAnchor(rem(20), $white, $gray--600);
+  display         : inline-block;
+  min-width       : 0;
+  margin          : 0;
+  padding         : rem(15);
+  box-shadow      : none;
+  border          : 2px solid $white;
+  border-bottom-width : 1px; // because of styled anchor underline
+  background      : transparent;
+  color           : $white;
+  text-shadow     : 1px 1px 2px solid rgba($black, .2);
+  text-decoration : none;
+  transition      : background-color 300ms ease;
+  cursor          : pointer;
+
+  &.disabled,
+  &[disabled] {
+      border-color : $gray--400;
+      color        : $gray--400;
+      cursor       : deflault;
+  }
+
+  .button__children {
+      display    : block;
+      width      : 100%;
+      text-align : center;
+  }
+
+  &:focus {
+    outline-width: em(1);
+    outline-style: solid;
+    outline-offset: em(1);
+    outline-color: $white;
+  }
+
+}
+
+.download-button {
+  display: block;
+  margin: 0 auto rem(40);
+  max-width: 40.625rem;
+  transition: color 200ms ease;
+
+  &:hover,
+  &:focus {
+    color: $aboutColor;
+  }
+}

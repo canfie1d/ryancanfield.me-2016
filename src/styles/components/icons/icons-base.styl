@@ -1,0 +1,106 @@
+// *******************************************
+// *******************************************
+
+// Base icon styles
+
+// *******************************************
+// *******************************************
+
+// <span class="icon [icon--[name] icon--rotate-[val] icon--[color]]">
+//     <svg />
+// </span>
+
+.icon {
+  display: inline-block;
+  width: rem(25);
+  height: rem(25);
+  background: transparent;
+  fill: $black;
+  pointer-events: none;
+
+  &.icon--logo {
+    width: 100% - rem(20);
+    max-width: 100% - rem(20);
+
+  }
+}
+
+// size modifiers
+.icon--x-small {
+  width: rem(10);
+  height: rem(10);
+}
+
+.icon--small {
+  width: rem(15);
+  height: rem(15);
+}
+
+.icon--medium {
+  width: rem(20);
+  height: rem(20);
+}
+
+.icon--large {
+  width: rem(35);
+  height: rem(35);
+}
+
+.icon--x-large {
+  width: rem(60);
+  height: rem(60);
+}
+
+// rotation modifiers
+.icon--rotate-45 {
+  transform: rotate(45deg);
+}
+
+.icon--rotate-90 {
+  transform: rotate(90deg);
+}
+
+.icon--rotate-180 {
+  transform: rotate(180deg);
+}
+
+.icon--rotate-270 {
+  transform: rotate(270deg);
+}
+
+// color modifiers
+.icon--black {
+  fill: $black;
+}
+
+.icon--white {
+  fill: $white;
+}
+
+.icon--primary {
+  fill: $primary;
+}
+
+.icon--secondary {
+  fill: $secondary;
+}
+
+.icon--tertiary {
+  fill: $tertiary;
+}
+
+.icon--projects {
+  fill: $projectsColor;
+}
+
+.icon--concepts {
+  fill: $conceptsColor;
+}
+
+.icon--about {
+  fill: $aboutColor;
+}
+
+.icon--elsewhere {
+  fill: $elsewhereColor;
+}

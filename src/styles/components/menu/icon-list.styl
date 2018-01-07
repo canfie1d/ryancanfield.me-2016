@@ -1,0 +1,44 @@
+.icon-list {
+  flexContainer();
+  justify-content: space-between;
+}
+
+.icon-list__item {
+  flexItem(1, 1, 25%);
+  position: relative;
+  margin-bottom: rem(40);
+
+  &:hover {
+    .icon-list__tooltip {
+      transform: scaleY(1) translateX(-50%);
+    }
+  }
+}
+
+.icon-list__icon {
+  flexContainer();
+  z-index: 1;
+
+  .icon {
+    margin: auto;
+
+    svg {
+      max-width: 100%;
+    }
+  }
+}
+
+.icon-list__tooltip {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  @extend .bodyFont;
+  font-size : rem(16);
+  color: $white;
+  width: 100%;
+  text-align: center;
+  transform: scaleY(0) translateX(-50%);
+  transition: transform 200ms ease;
+  transform-origin: top;
+}

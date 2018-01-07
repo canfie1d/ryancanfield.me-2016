@@ -1,0 +1,144 @@
+// *******************************************
+// *******************************************
+
+// Layout for pattern library
+
+// *******************************************
+// *******************************************
+
+// vars
+$pl-sidebar-width= rem(240);
+$pl-header-height= rem(64);
+
+// container element of style guide section
+.pl {
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+}
+
+// style guide sidebar with main navigation
+// fixed left on large screens
+// off canvas for mobile
+
+.pl-sidebar__trigger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: rem(64);
+  width: rem(64);
+  cursor: pointer;
+  padding: rem(19);
+
+  .icon {
+    position: absolute;
+    top: rem(6); // hack b/c icons won't align properly ¯\_(ツ)_/¯ Should be rem(19)
+    left: rem(19);
+  }
+
+  +min-screen($media-medium) {
+    display: none;
+  }
+
+}
+
+.pl-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  width: $pl-sidebar-width;
+  height: 100%;
+  padding: rem(30);
+  background: $white;
+  border-right: 1px solid $gray--300;
+  transition: 200ms left $ease-in-out-back;
+  box-shadow: 4px 0 0 rgba($black, .05);
+
+  &.pl-sidebar--hidden {
+    left: rem(-240);
+  }
+
+  +min-screen($media-medium) {
+    left: 0;
+    box-shadow: none;
+
+    &.pl-sidebar--hidden {
+      left: 0;
+    }
+
+  }
+
+}
+
+// main content of style guide
+// to right of sidebar on large screens
+// centered for mobile
+.pl-content {
+  z-index: 1;
+  width: auto;
+  min-height: 100vh;
+  margin-left: 0;
+  background: tint($black, 96%);
+  border: 1px solid transparent;
+
+  +min-screen($media-medium) {
+    margin-left: $pl-sidebar-width;
+  }
+
+}
+
+// centered content of page with max-width
+.pl-page {
+  max-width: rem(850);
+  height: 100%;
+  min-height: 100%;
+  margin: $pl-header-height auto 0 auto;
+  padding: rem(40);
+
+  &.example .row {
+    margin-bottom: 20px;
+
+    > div {
+      background: tint($primary, 60%);
+      padding: rem(3);
+    }
+  }
+
+  &.example .row .box {
+    padding: rem(10);
+    background: $primary;
+    border: 1px solid darken($primary, 20%);
+    color: $white;
+  }
+
+}
+
+// style guide page sidebar fixed to top
+// offset by sidebar on desktop
+.pl-content__header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  left: 0;
+  height: $pl-header-height;
+  padding: rem(0 30 0 64);
+  line-height: $pl-header-height;
+  background: $cyan--500;
+  box-shadow: 0px 4px 0px rgba($black, .1);
+
+  +min-screen($media-medium) {
+    left: $pl-sidebar-width;
+    padding: rem(0 30);
+  }
+}
+
+// page title text inside of page sidebar
+.pl-content__title {
+  font-weight: bold;
+  font-size: rem(28);
+  color: $white;
+  text-shadow: 2px 2px 0px rgba($black, .1);
+}

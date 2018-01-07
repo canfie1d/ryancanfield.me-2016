@@ -1,0 +1,48 @@
+// *******************************************
+// *******************************************
+
+// Style guide main navigation
+
+// *******************************************
+// *******************************************
+
+// <nav className='pl-nav'>
+//     <menu className='pl-nav__menu'>
+//         <li className='pl-nav__menu-item'>
+//             <a className='pl-nav__menu-link [pl-nav__menu-link--is-current]'>
+//                 {'Buttons'}
+//             </a>
+//         </li>
+//     </menu>
+// </nav>
+
+// nav menu element
+.pl-nav__menu {
+  list-style-type: none;
+}
+
+// nav menu top level item element
+.pl-nav__menu-item {
+  margin: rem(8 0);
+}
+
+// nav menu link item
+.pl-nav__menu-link {
+  padding: rem(5 10);
+  display: block;
+  font-size: rem(14);
+  font-weight: bold;
+  color: $gray--800;
+  border-left: 3px solid transparent;
+
+  &:hover {
+    color: $gray--900;
+    cursor: pointer;
+  }
+
+}
+
+// current state of navigation
+.pl-nav__menu-link--is-current {
+  border-left-color: $cyan--100;
+}

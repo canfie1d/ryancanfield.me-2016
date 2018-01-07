@@ -1,0 +1,41 @@
+.display__menu__wrapper {
+    flexContainer(true);
+    align-items : stretch;
+    position    : absolute;
+    top         : 0;
+    right       : 0;
+    bottom      : 0;
+    left        : 0;
+    width       : 100%;
+}
+
+.display__menu {
+    flexContainer(true);
+    flexItem(1, 1, auto);
+    align-self : stretch;
+    transform  : translateY(-100%);
+    transition : transform 300ms $ease-in-out-quint;
+    background : $white;
+    z-index    : 1;
+
+    &.display__menu--active {
+        transform : translateY(0);
+    }
+}
+
+// .display__menu__list {
+//     padding : 8.405% 30%;
+// }
+
+.display__menu__item {
+  @extend .displayFont;
+  styledAnchor(rem(24), $projectsColor, $white);
+  flexItem(1, 1, auto);
+  padding : rem(20);
+  cursor  : pointer;
+
+  +min-screen($media-medium) {
+      // font-size : rem(34)
+  }
+
+}

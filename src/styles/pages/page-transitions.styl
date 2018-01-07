@@ -1,0 +1,168 @@
+$transiton-timing    = $ease-out-quad;
+$transiton-timing2   = ease-in-out;
+$transition-duration = 300ms;
+
+///////////////////
+// SNIPPETS PAGE //
+///////////////////
+.concepts-page {
+
+  // controls concepts enter from menu page
+  &.concepts-enter {
+      transform  : translate3d(-100%, 0, 0);
+      transition : transform $transition-duration $transiton-timing;
+  }
+
+  &.concepts-enter.concepts-enter-active {
+      transform : translate3d(0, 0, 0);
+  }
+
+  // controls concepts leave from concepts page
+  &.menu-leave {
+    transform  : translate3d(0, 0, 0);
+    transition : transform $transition-duration $transiton-timing2;
+  }
+
+  &.menu-leave.menu-leave-active {
+    transform : translate3d(-100%, 0, 0);
+  }
+
+}
+
+.menu-page {
+  // controls menu leave from menu page
+  // when going to concepts page
+  &.concepts-leave {
+    transform  : translate3d(0, 0, 0);
+    transition : transform $transition-duration $transiton-timing;
+  }
+
+  &.concepts-leave.concepts-leave-active {
+    transform : translate3d(100%, 0, 0);
+  }
+
+}
+
+///////////////////
+//   WORK PAGE   //
+///////////////////
+
+.projects-page {
+
+  // controls projects enter from menu page
+  &.projects-enter {
+      transform  : translate3d(100%, 0, 0);
+      transition : transform $transition-duration $transiton-timing;
+  }
+
+  &.projects-enter.projects-enter-active {
+      transform : translate3d(0, 0, 0);
+  }
+
+  // controls projects leave from projects page
+  &.menu-leave {
+    transform  : translate3d(0, 0, 0);
+    transition : transform $transition-duration $transiton-timing2;
+  }
+
+  &.menu-leave.menu-leave-active {
+    transform : translate3d(100%, 0, 0);
+  }
+
+}
+
+.menu-page {
+  // controls menu leave from menu page
+  // when going to projects page
+  &.projects-leave {
+    transform  : translate3d(0, 0, 0);
+    transition : transform $transition-duration $transiton-timing;
+  }
+
+  &.projects-leave.projects-leave-active {
+    transform : translate3d(-100%, 0, 0);
+  }
+
+}
+
+///////////////////
+//  ABOUT PAGE   //
+///////////////////
+.about-page {
+
+  // controls about enter from menu page
+  &.about-enter {
+      transform  : translate3d(0, -100%, 0);
+      transition : transform $transition-duration $transiton-timing;
+  }
+
+  &.about-enter.about-enter-active {
+      transform : translate3d(0, 0, 0);
+  }
+
+  // controls about leave from about page
+  &.menu-leave {
+    transform  : translate3d(0, 0, 0);
+    transition : transform $transition-duration $transiton-timing2;
+  }
+
+  &.menu-leave.menu-leave-active {
+    transform : translate3d(0, -100%, 0);
+  }
+
+}
+
+.menu-page {
+  // controls menu leave from menu page
+  // when going to about page
+  &.about-leave {
+      transform  : translate3d(0, 0, 0);
+      transition : transform $transition-duration $transiton-timing;
+  }
+
+  &.about-leave.about-leave-active {
+      transform : translate3d(0, 100%, 0);
+  }
+
+}
+
+////////////////////
+// ELSEWHERE PAGE //
+////////////////////
+.elsewhere-page {
+
+  // controls elsewhere enter from menu page
+  &.elsewhere-enter {
+      transform  : translate3d(0, 100%, 0);
+      transition : transform $transition-duration $transiton-timing;
+  }
+
+  &.elsewhere-enter.elsewhere-enter-active {
+      transform : translate3d(0, 0, 0);
+  }
+
+  // controls elsewhere leave from elsewhere page
+  &.menu-leave {
+    transform  : translate3d(0, 0, 0);
+    transition : transform $transition-duration $transiton-timing2;
+  }
+
+  &.menu-leave.menu-leave-active {
+    transform : translate3d(0, 100%, 0);
+  }
+
+}
+
+.menu-page {
+
+  // controls menu leave from menu page
+  // when going to elsewhere page
+  &.elsewhere-leave {
+    transform  : translate3d(0, 0, 0);
+    transition : transform $transition-duration $transiton-timing;
+  }
+
+  &.elsewhere-leave.elsewhere-leave-active {
+    transform : translate3d(0, -100%, 0);
+  }
+}
